@@ -94,12 +94,6 @@ EOF
 fi
 /system/sdcard/bin/busybox crond -L /system/sdcard/log/crond.log -c /system/sdcard/config/cron/crontabs
 
-## Set Hostname
-if [ ! -f $CONFIGPATH/hostname.conf ]; then
-  cp $CONFIGPATH/hostname.conf.dist $CONFIGPATH/hostname.conf
-fi
-hostname -F $CONFIGPATH/hostname.conf
-
 ## Load network driver
 if [ -f $CONFIGPATH/usb_eth_driver.conf ]; then
   ## Start USB Ethernet:
@@ -128,6 +122,15 @@ else
   echo "wpa_supplicant: $wpa_supplicant_status" >> $LOGPATH
 
   network_interface_name="wlan0"
+fi
+
+## Set Hostname
+if [ -f $CONFIGPATH/hostname.conf ]; then
+  hostname -F $CONFIGPATH/hostname.conf
+else
+  MAC=$(cat /sys/class/net/wlan0/address | tr -d :)
+  MAC=${MAC#"7811dc"} # Xiaomi MAC prefix
+  hostname "dafang-${MAC}"
 fi
 
 ## Configure network address
