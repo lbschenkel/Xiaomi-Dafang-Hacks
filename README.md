@@ -1,3 +1,13 @@
+This contains some customizations I have done for my own use (Xiaomi Dafang camera):
+
+- hostname is automatically set based on MAC address
+- hostname is used as the device name for MQTT
+- swap enabled by default
+- camera performs motor calibration on boot
+- alarm functionality controllable via MQTT
+
+---
+
 ## Xiaomi DaFang Hacks / XiaoFang 1S / Wyzecam V2 / Wyzecam Pan / Other T20 Devices
 
 [![Join the chat at https://gitter.im/Xiaomi-Dafang-Hacks/Lobby](https://badges.gitter.im/Xiaomi-Dafang-Hacks/Lobby.svg)](https://gitter.im/Xiaomi-Dafang-Hacks/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
