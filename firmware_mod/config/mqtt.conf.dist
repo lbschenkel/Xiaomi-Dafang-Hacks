@@ -5,16 +5,16 @@
 export LD_LIBRARY_PATH='/thirdlib:/system/lib:/system/sdcard/lib'
 
 # Options for mosquitto_sub & mosquitto_pub
-USER=mqtt-user
-PASS=mqtt-password
-HOST=mqtt-host
+USER=guest
+PASS=guest
+HOST=mqtt
 PORT=1883
 
 # Define a location
-LOCATION="myhome"
+LOCATION="home"
 
 # Define device name
-DEVICE_NAME="dafang"
+DEVICE_NAME="$(hostname -s)"
 
 # Define the base topic used by the camera
 # send a message to myhome/dafang/set with the payload help for help.
@@ -22,7 +22,7 @@ DEVICE_NAME="dafang"
 TOPIC="$LOCATION/$DEVICE_NAME"
 
 # Define an autodiscovery prefix, if autodiscovery is desired:
-# AUTODISCOVERY_PREFIX="homeassistant"
+AUTODISCOVERY_PREFIX="homeassistant"
 
 # Define additional options for Mosquitto here.
 # For example --cafile /system/sdcard/config/DST_Root_CA_X3.pem --tls-version tlsv1
